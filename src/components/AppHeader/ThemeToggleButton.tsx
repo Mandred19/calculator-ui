@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { Theme, ThemeContext } from '../../context.providers/ThemeContext.provider';
+import { Theme, ThemeContext } from '../../Providers/ThemeContext.provider';
 
 const ThemeToggleButton: FC = (): ReactElement => {
   return (
