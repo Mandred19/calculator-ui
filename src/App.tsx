@@ -1,26 +1,26 @@
 import React, { FC, ReactElement } from 'react';
-import classNames from 'classnames';
 import AppHeader from './components/AppHeader';
 import AppDisplayArea from './components/AppDisplayArea';
 import AppInputArea from './components/AppInputArea';
 import AppControlsArea from './components/AppControlsArea';
+import { Container, Stack } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+
+type UseStyles = 'appWrapper';
+
+const useStyles = makeStyles<void, UseStyles>()(() => ({
+  appWrapper: {
+    backgroundColor: '#eee',
+  },
+}));
 
 const App: FC = (): ReactElement => {
+  const style = { height: '100%', overflow: 'hidden' };
+  const { classes } = useStyles();
+
   return (
-    <div className={classNames(`
-    text-dark
-    dark:text-light
-    bg-light
-    dark:bg-dark
-    w-full
-    h-full`)}>
-      <div className={classNames(`
-      md:container
-      md:mx-auto
-      md:p-4
-      p-2
-      h-full
-      overflow-hidden`)}>
+    <Stack direction={'column'} className={classes.appWrapper} style={style}>
+      <Container maxWidth={'xl'} style={style}>
         <AppHeader/>
 
         <AppDisplayArea/>
@@ -28,8 +28,8 @@ const App: FC = (): ReactElement => {
         <AppInputArea/>
 
         <AppControlsArea/>
-      </div>
-    </div>
+      </Container>
+    </Stack>
   );
 };
 
