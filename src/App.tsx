@@ -1,9 +1,8 @@
 import React, { FC, ReactElement } from 'react';
-import AppHeader from './components/AppHeader';
-import AppDisplayArea from './components/AppDisplayArea';
-import AppInputArea from './components/AppInputArea';
-import AppControlsArea from './components/AppControlsArea';
+import { BrowserRouter } from 'react-router-dom';
 import { Container, Stack } from '@mui/material';
+import AppHeader from './components/AppHeader';
+import Router from './Router';
 import { makeStyles } from 'tss-react/mui';
 
 type UseStyles = 'appWrapper';
@@ -19,17 +18,15 @@ const App: FC = (): ReactElement => {
   const { classes } = useStyles();
 
   return (
-    <Stack direction={'column'} className={classes.appWrapper} style={style}>
-      <Container maxWidth={'xl'} style={style}>
-        <AppHeader/>
+    <BrowserRouter>
+      <Stack direction={'column'} className={classes.appWrapper} style={style}>
+        <Container maxWidth={'xl'} style={style}>
+          <AppHeader/>
 
-        <AppDisplayArea/>
-
-        <AppInputArea/>
-
-        <AppControlsArea/>
-      </Container>
-    </Stack>
+          <Router/>
+        </Container>
+      </Stack>
+    </BrowserRouter>
   );
 };
 
