@@ -4,7 +4,7 @@ import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
-import { BaseButtons, BaseButtonsRow, ControlsValues } from './types';
+import { BaseButtons, BaseButtonsRow, ControlsDecimalDot, ControlsNumbers, ControlsSigns, ControlsUtils } from './types';
 
 export const rowBaseFirst: BaseButtonsRow = [
   {
@@ -12,25 +12,25 @@ export const rowBaseFirst: BaseButtonsRow = [
     title: '',
     tooltipTitle: 'test Toggle controls mode',
     startIcon: <LoopIcon/>,
-    value: ControlsValues.TOGGLE_MODE,
+    value: ControlsUtils.TOGGLE_MODE,
   },
   {
     key: '0',
     title: '0',
-    tooltipTitle: '0',
-    value: ControlsValues.NULL,
+    tooltipTitle: '',
+    value: ControlsNumbers.NULL,
   },
   {
     key: 'decimal dot',
     title: '.',
     tooltipTitle: 'test Decimal dot',
-    value: ControlsValues.DECIMAL_DOT,
+    value: ControlsDecimalDot.DECIMAL_DOT,
   },
   {
     key: 'equal',
     title: '=',
     tooltipTitle: 'test Equal',
-    value: ControlsValues.EQUAL,
+    value: ControlsSigns.EQUAL,
   },
 ];
 
@@ -38,81 +38,81 @@ export const rowBaseSecond: BaseButtonsRow = [
   {
     key: '1',
     title: '1',
-    tooltipTitle: '1',
-    value: ControlsValues.ONE,
+    tooltipTitle: '',
+    value: ControlsNumbers.ONE,
   },
   {
     key: '2',
     title: '2',
-    tooltipTitle: '2',
-    value: ControlsValues.TWO,
+    tooltipTitle: '',
+    value: ControlsNumbers.TWO,
   },
   {
     key: '3',
     title: '3',
-    tooltipTitle: '3',
-    value: ControlsValues.THREE,
+    tooltipTitle: '',
+    value: ControlsNumbers.THREE,
   },
   {
     key: 'add',
     title: '',
     tooltipTitle: 'test Add',
     startIcon: <AddIcon/>,
-    value: ControlsValues.ADD,
+    value: ControlsSigns.ADD,
   },
 ];
 export const rowBaseThird: BaseButtonsRow = [
   {
     key: '4',
     title: '4',
-    tooltipTitle: '4',
-    value: ControlsValues.FOUR,
+    tooltipTitle: '',
+    value: ControlsNumbers.FOUR,
   },
   {
     key: '5',
     title: '5',
-    tooltipTitle: '5',
-    value: ControlsValues.FIVE,
+    tooltipTitle: '',
+    value: ControlsNumbers.FIVE,
   },
   {
     key: '6',
     title: '6',
-    tooltipTitle: '6',
-    value: ControlsValues.SIX,
+    tooltipTitle: '',
+    value: ControlsNumbers.SIX,
   },
   {
     key: 'subtract',
     title: '',
     tooltipTitle: 'test Subtract',
     startIcon: <RemoveIcon/>,
-    value: ControlsValues.SUBTRACT,
+    value: ControlsSigns.SUBTRACT,
   },
 ];
 export const rowBaseFourth: BaseButtonsRow = [
   {
     key: '7',
     title: '7',
-    tooltipTitle: '7',
-    value: ControlsValues.SEVEN,
+    tooltipTitle: '',
+    value: ControlsNumbers.SEVEN,
   },
   {
     key: '8',
     title: '8',
-    tooltipTitle: '8',
-    value: ControlsValues.EIGHT,
+    tooltipTitle: '',
+    value: ControlsNumbers.EIGHT,
   },
   {
     key: '9',
     title: '9',
-    tooltipTitle: '9',
-    value: ControlsValues.NINE,
+    tooltipTitle: '',
+    value: ControlsNumbers.NINE,
   },
   {
     key: 'multiply',
     title: '',
     tooltipTitle: 'test Multiply',
     startIcon: <CloseIcon/>,
-    value: ControlsValues.MULTIPLY,
+    value: ControlsSigns.MULTIPLY,
   },
 ];
 export const rowBaseFifth: BaseButtonsRow = [
@@ -120,26 +120,26 @@ export const rowBaseFifth: BaseButtonsRow = [
     key: 'reset all',
     title: 'AC',
     tooltipTitle: 'test Reset all',
-    value: ControlsValues.RESET_ALL,
+    value: ControlsUtils.RESET_ALL,
   },
   {
     key: 'backspace',
     title: '',
     tooltipTitle: 'test Delete last symbol',
     startIcon: <BackspaceOutlinedIcon/>,
-    value: ControlsValues.BACKSPACE,
+    value: ControlsUtils.BACKSPACE,
   },
   {
-    key: 'percent',
+    key: 'percentage',
     title: '%',
-    tooltipTitle: 'test Percent',
-    value: ControlsValues.PERCENT,
+    tooltipTitle: 'test Percentage',
+    value: ControlsSigns.PERCENTAGE,
   },
   {
     key: 'divide',
     title: '/',
     tooltipTitle: 'test Divide',
-    value: ControlsValues.DIVIDE,
+    value: ControlsSigns.DIVIDE,
   },
 ];
 

@@ -2,7 +2,7 @@ import React, { FC, ReactElement, MouseEvent, useState, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import ControlButton from './ControlButton';
 import { baseButtons } from './baseButtons';
-import { ControlsValues } from './types';
+import { ControlsDecimalDot, ControlsNumbers, ControlsSigns, ControlsUtils } from './types';
 import { advancedButtons } from './advancedButtons';
 
 enum ControlsMode {
@@ -10,7 +10,23 @@ enum ControlsMode {
   ADVANCED = 'advanced',
 }
 
-const ControlsArea: FC = (): ReactElement => {
+interface Props {
+  handleResetAll: () => void;
+  handleBackspace: () => boolean;
+  handleButtonNumber: (buttonValue: ControlsNumbers) => void;
+  handleButtonDecimalDot: (buttonValue: ControlsDecimalDot) => void;
+  handleButtonSign: (buttonValue: ControlsSigns) => void;
+}
+
+const ControlsArea: FC<Props> = (props): ReactElement => {
+  const {
+    handleBackspace,
+    handleResetAll,
+    handleButtonNumber,
+    handleButtonDecimalDot,
+    handleButtonSign,
+  } = props;
+
   const [mode, setMode] = useState<ControlsMode>(ControlsMode.BASE);
   const currentButtons = useMemo(() => mode === ControlsMode.BASE ? baseButtons : advancedButtons, [mode]);
 
@@ -19,13 +35,30 @@ const ControlsArea: FC = (): ReactElement => {
   };
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>): void => {
+    e.preventDefault();
     const buttonValue = e.currentTarget.value;
-    // eslint-disable-next-line no-console
-    console.log(111, e.currentTarget.value);
 
     switch (buttonValue) {
-      case ControlsValues.TOGGLE_MODE: handleSetMode(); break;
-      default: break;
+      case ControlsUtils.TOGGLE_MODE: handleSetMode(); break;
+
+      case ControlsUtils.BACKSPACE: handleBackspace(); break;
+
+      case ControlsUtils.RESET_ALL: handleResetAll(); break;
+
+      case ControlsNumbers.NULL:
+      case ControlsNumbers.ONE:
+      case ControlsNumbers.TWO:
+      case ControlsNumbers.THREE:
+      case ControlsNumbers.FOUR:
+      case ControlsNumbers.FIVE:
+      case ControlsNumbers.SIX:
+      case ControlsNumbers.SEVEN:
+      case ControlsNumbers.EIGHT:
+      case ControlsNumbers.NINE: handleButtonNumber(buttonValue); break;
+
+      case ControlsDecimalDot.DECIMAL_DOT: handleButtonDecimalDot(buttonValue); break;
+
+      default: handleButtonSign(buttonValue as ControlsSigns);
     }
   };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseButtons, BaseButtonsRow, ControlsValues } from './types';
+import { BaseButtons, BaseButtonsRow, ControlsSigns } from './types';
 import { rowBaseFifth, rowBaseFirst, rowBaseFourth, rowBaseSecond, rowBaseThird } from './baseButtons';
 
 const rowAdvancedFirst: BaseButtonsRow = [
@@ -8,7 +8,7 @@ const rowAdvancedFirst: BaseButtonsRow = [
     key: 'exponent',
     title: 'e',
     tooltipTitle: 'test Exponent',
-    value: ControlsValues.EXPONENT,
+    value: ControlsSigns.EXPONENT,
   },
   rowBaseFirst[1],
   rowBaseFirst[2],

@@ -1,9 +1,13 @@
 import React, { FC, ReactElement } from 'react';
 
-const InputArea: FC = (): ReactElement => {
+interface Props {
+  expression: string;
+}
+
+const InputArea: FC<Props> = ({expression}): ReactElement => {
   return (
     <div>
-      InputArea
+      {expression}
     </div>
   );
 };

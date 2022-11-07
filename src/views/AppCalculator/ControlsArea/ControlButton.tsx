@@ -2,6 +2,10 @@ import React, { FC, ReactElement, MouseEvent } from 'react';
 import { Button, Tooltip } from '@mui/material';
 import { ButtonControl } from './types';
 
+interface Props {
+  handleClick: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+
 const ControlButton: FC<Props & ButtonControl> = (props: Props & ButtonControl): ReactElement => {
   const {title, tooltipTitle, handleClick, ...rest} = props;
 
@@ -20,7 +24,3 @@ const ControlButton: FC<Props & ButtonControl> = (props: Props & ButtonControl):
 };
 
 export default ControlButton;
-
-interface Props {
-  handleClick: (e: MouseEvent<HTMLButtonElement>) => void;
-}
